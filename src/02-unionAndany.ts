@@ -11,7 +11,7 @@ airlineSeats = "middle";
 
 const orders = ["10", "20", "30", "42"];
 
-//avoid any type
+//avoid 'any' type
 
 // let currentorder; // let currentorder: any
 let currentorder: string | undefined;
