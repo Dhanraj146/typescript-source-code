@@ -32,8 +32,8 @@ class Chai implements CupSize {
   size: "small" | "large" = "large";
 }
 
-// type respone = { ok: true } | { ok: false };
-// class myres implements respone {
+// type response = { ok: true } | { ok: false };
+// class myres implements response {
 //   ok: boolean = true;
 // }
 
@@ -55,6 +55,7 @@ type masalachai = basechai & extra; // intersection (AND) --> both properties sh
 const cup: masalachai = {
   tealeaves: 2,
   masala: 1,
+  // quantity: 2,
 };
 
 type User = {

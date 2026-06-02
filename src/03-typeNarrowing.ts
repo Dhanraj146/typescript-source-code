@@ -6,8 +6,8 @@ function getChai(kind: string | number) {
 
 function serveChai(msg?: string) {
   // optional msg --> we can pass the msg or not if not passed it becomes undefined or empty
-  if (msg) return `serving ${msg}`;
-  return `serving default masala chai`;
+  if (msg) return `serving ${msg}`; // here msg 100 percent exists
+  return `serving default masala chai`; //here it doesnt exists
 }
 
 function orderChai(size: "small" | "medium" | "large" | number) {
@@ -67,7 +67,7 @@ function serverOrder(item: ChaiOrder | string) {
 }
 
 type MasalaChai = {
-  type: "masala";
+  type: "masala"; // here type value is "masala" other than this no other value can come
   spicelevel: number;
 };
 type GingerChai = {

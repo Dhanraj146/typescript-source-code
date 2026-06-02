@@ -1,6 +1,6 @@
 let response: any = "42";
 
-//forceful type assertions (as)
+//forceful type assertions (as) --> assertion not conversion like Number("42")
 
 let numericLength: number = (response as string).length;
 
@@ -30,6 +30,7 @@ newvalue = 2.5;
 // newvalue.toUpperCase(); // error
 //so for this we have to type narrow for unknown type
 if (typeof newvalue === "string") {
+  //u have to use type guards
   console.log(newvalue.toUpperCase());
 }
 if (typeof newvalue === "number") {
@@ -43,12 +44,12 @@ try {
     console.log(err.message);
 }
 
-const data: unknown = "chai aur code";
+const data: unknown = "chai aur code"; //here if u use 'any' then it doesnt gives any error before type assertions just in case to use any methods then we do type assertion but here in 'unknown' u have to do type assertion or else u get error
 const strdata: string = data as string;
 
 // type --> never(for missing validation checks(to identify obvious mistakes))
 
-type Role = "admin" | "user";
+type Role = "admin" | "user" | "superadmin";
 
 function redirect(role: Role): void {
   if (role === "admin") {
@@ -64,4 +65,5 @@ function redirect(role: Role): void {
 
 function neverreturn(): never {
   while (true) {}
+  // return ""
 }

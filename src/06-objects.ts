@@ -11,7 +11,7 @@ const chai = {
 // }
 
 let tea: {
-  // object declaration
+  // object declaration--> not reusable
   name: string;
   price: number;
   isHot: boolean;
@@ -21,7 +21,7 @@ tea = {
   name: "ginger tea",
   price: 25,
   isHot: true,
-  //   milk: "powder",
+  // milk: "powder",
 };
 
 type Tea = {
@@ -55,7 +55,7 @@ type User = {
 // const u:User = {
 //     username : "dhanraj"
 // }
-
+//we can split types like this
 type Item = { name: string; quantity: number };
 type Address = { street: string; pin: number };
 
@@ -64,3 +64,68 @@ type Order = {
   items: Item[];
   address: Address;
 };
+
+type Chai = {
+  name: string;
+  price: number;
+  isHot: boolean;
+};
+
+// const func = (updates: Chai) => {
+//   console.log(updates);
+// };
+
+// func({
+//   name: "Dhanraj",
+// });
+
+const updateChai = (updates: Partial<Chai>) => {
+  //Make all properties in T optional
+  console.log("updating chai with ", updates);
+};
+
+updateChai({
+  name: "Dhanraj",
+});
+// updateChai({
+//   quantity:2
+// });
+updateChai({});
+
+type ChaiOrder = {
+  name?: string;
+  quantity?: number;
+};
+const placeOrder = (order: Required<ChaiOrder>) => {
+  //Make all properties in T required
+  console.log(order);
+};
+placeOrder({
+  name: "dhanraj",
+  quantity: 2,
+});
+// placeOrder({})
+
+type Chiaseeds = {
+  name: string;
+  price: number;
+  bubbled: boolean;
+  ingredients: string[];
+};
+
+type basicSeedsinfo = Pick<Chiaseeds, "name" | "price">;
+//From T, pick a set of properties whose keys are in the union K
+const seedsinfo: basicSeedsinfo = {
+  name: "chia",
+  price: 25,
+  // bubbled:true
+};
+
+type privateChai = {
+  name: string;
+  price: number;
+  isHot: boolean;
+  secretIngredients: string;
+};
+
+type publicChai = Omit<privateChai, "secretIngredients">;
